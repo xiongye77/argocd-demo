@@ -39,7 +39,7 @@ spec:
           // Build new image
           sh "until docker ps; do sleep 3; done && docker build -t alexmt/argocd-demo:${env.GIT_COMMIT} ."
           // Publish new image
-          sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW && docker push alexmt/argocd-demo:${env.GIT_COMMIT}"
+          sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW && docker push xiongye77/argocd-demo:${env.GIT_COMMIT}"
         }
       }
     }
@@ -50,7 +50,7 @@ spec:
       }
       steps {
         container('tools') {
-          sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/alexmt/argocd-demo-deploy.git"
+          sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/xiongye77/argocd-demo-deploy.git"
           sh "git config --global user.email 'ci@ci.com'"
 
           dir("argocd-demo-deploy") {
