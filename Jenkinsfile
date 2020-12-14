@@ -37,9 +37,9 @@ spec:
       steps {
         container('docker') {
           // Build new image
-          sh "until docker ps; do sleep 3; done && docker build -t alexmt/argocd-demo:${env.GIT_COMMIT} ."
+          sh "until docker ps; do sleep 3; done && docker build -t dbaxy770928/argocd-demo:${env.GIT_COMMIT} ."
           // Publish new image
-          sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW && docker push xiongye77/argocd-demo:${env.GIT_COMMIT}"
+          sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW && docker push dbaxy770928/argocd-demo:${env.GIT_COMMIT}"
         }
       }
     }
